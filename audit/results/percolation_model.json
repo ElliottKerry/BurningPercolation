@@ -1,0 +1,138 @@
+{
+ "glm": {
+  "M0": {
+   "deviance_explained": 0.045,
+   "pearson_dispersion": 19.66
+  },
+  "M1": {
+   "deviance_explained": 0.7709,
+   "pearson_dispersion": 3.79,
+   "rate_ratio_per_unit": {
+    "baseline": [
+     3.11,
+     3.099,
+     3.12
+    ]
+   }
+  },
+  "M2": {
+   "deviance_explained": 0.783,
+   "pearson_dispersion": 3.56,
+   "rate_ratio_per_unit": {
+    "baseline": [
+     3.122,
+     3.111,
+     3.132
+    ],
+    "rain_mm_anom": [
+     0.964,
+     0.958,
+     0.97
+    ],
+    "temp_c_anom": [
+     0.897,
+     0.892,
+     0.902
+    ],
+    "rh_pct_anom": [
+     0.885,
+     0.88,
+     0.89
+    ],
+    "wind_ms_anom": [
+     1.042,
+     1.035,
+     1.049
+    ],
+    "soil_0_7cm_anom": [
+     0.965,
+     0.959,
+     0.971
+    ]
+   }
+  }
+ },
+ "periods": {
+  "observed_ratio": {
+   "2003\u201306": 1.245,
+   "2007\u201315": 1.073,
+   "2016\u201324": 1.241
+  },
+  "oracle_ratio": {
+   "2003\u201306": 0.967,
+   "2007\u201315": 0.902,
+   "2016\u201324": 0.997
+  },
+  "M0_ratio": {
+   "2003\u201306": 1.0,
+   "2007\u201315": 1.003,
+   "2016\u201324": 1.003
+  },
+  "M1_ratio": {
+   "2003\u201306": 0.973,
+   "2007\u201315": 1.0,
+   "2016\u201324": 0.979
+  },
+  "M2_ratio": {
+   "2003\u201306": 0.999,
+   "2007\u201315": 0.962,
+   "2016\u201324": 0.979
+  },
+  "M0_residual": {
+   "2003\u201306": 1.244,
+   "2007\u201315": 1.071,
+   "2016\u201324": 1.237
+  },
+  "M1_residual": {
+   "2003\u201306": 1.28,
+   "2007\u201315": 1.074,
+   "2016\u201324": 1.268
+  },
+  "M2_residual": {
+   "2003\u201306": 1.244,
+   "2007\u201315": 1.117,
+   "2016\u201324": 1.269
+  }
+ },
+ "agreement": {
+  "oracle": {
+   "spearman_with_observed": [
+    0.719,
+    0.0
+   ]
+  },
+  "M0": {
+   "spearman_with_observed": [
+    -0.294,
+    0.1839
+   ],
+   "spearman_with_oracle": [
+    -0.093,
+    0.68
+   ],
+   "residual_2007_15_vs_other_p": 2e-05
+  },
+  "M1": {
+   "spearman_with_observed": [
+    -0.431,
+    0.0453
+   ],
+   "spearman_with_oracle": [
+    -0.432,
+    0.045
+   ],
+   "residual_2007_15_vs_other_p": 1e-05
+  },
+  "M2": {
+   "spearman_with_observed": [
+    0.483,
+    0.0229
+   ],
+   "spearman_with_oracle": [
+    0.321,
+    0.145
+   ],
+   "residual_2007_15_vs_other_p": 0.00018
+  }
+ }
+}

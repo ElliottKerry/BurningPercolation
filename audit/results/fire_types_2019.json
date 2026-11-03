@@ -1,0 +1,46 @@
+{
+ "detections": 1054924,
+ "events": 173810,
+ "types": {
+  "deforestation": {
+   "events": 6895,
+   "detections": 369510,
+   "share_pct": 35.027167833891355,
+   "andela_share_pct": 39,
+   "andela_events": 19700,
+   "mean_cells": 15.441044234952864,
+   "mean_duration_days": 6.64075416968818,
+   "median_duration_days": 5.0
+  },
+  "forest": {
+   "events": 3660,
+   "detections": 147936,
+   "share_pct": 14.02337988329017,
+   "andela_share_pct": 12,
+   "andela_events": 3000,
+   "mean_cells": 15.091530054644808,
+   "mean_duration_days": 6.030874316939891,
+   "median_duration_days": 5.0
+  },
+  "small": {
+   "events": 58599,
+   "detections": 124157,
+   "share_pct": 11.769283853623579,
+   "andela_share_pct": 17,
+   "andela_events": 113000,
+   "mean_cells": 1.6598576767521631,
+   "mean_duration_days": 1.376252154473626,
+   "median_duration_days": 1.0
+  },
+  "savanna/grassland": {
+   "events": 104656,
+   "detections": 413321,
+   "share_pct": 39.1801684291949,
+   "andela_share_pct": 32,
+   "andela_events": null,
+   "mean_cells": 2.4620184222595936,
+   "mean_duration_days": 1.6151200122305458,
+   "median_duration_days": 1.0
+  }
+ }
+}

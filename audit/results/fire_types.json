@@ -1,0 +1,46 @@
+{
+ "rules": {
+  "recurring_spot_years": 5,
+  "spreading_days": 3,
+  "spreading_detections": 10
+ },
+ "mean_share_of_events": {
+  "Recurring spot": 0.20734353830303814,
+  "New spot": 0.792656461696962,
+  "Spreading fire": 0.06585677954806825,
+  "Small burn": 0.9341432204519318
+ },
+ "mean_share_of_detections": {
+  "Recurring spot": 0.1962813589126542,
+  "New spot": 0.8037186410873457,
+  "Spreading fire": 0.24554427922608443,
+  "Small burn": 0.7544557207739157
+ },
+ "mean_ratio": {
+  "All events": 1.1752980750723216,
+  "Recurring spot": 1.466569780903304,
+  "New spot": 1.0731715600436444,
+  "Spreading fire": 1.0115723373635812,
+  "Small burn": 1.1618212964663654
+ },
+ "min_ratio": {
+  "All events": 0.9704439119023165,
+  "Recurring spot": 1.0725269767266985,
+  "New spot": 0.8780767626199417,
+  "Spreading fire": 0.869329701921622,
+  "Small burn": 0.9512592270950934
+ },
+ "max_ratio": {
+  "All events": 1.35,
+  "Recurring spot": 2.054840169498499,
+  "New spot": 1.3231728142076502,
+  "Spreading fire": 1.2214654450120273,
+  "Small burn": 1.3635477582846005
+ },
+ "corr_with_all_events": {
+  "Recurring spot": 0.4817863484484008,
+  "New spot": 0.9272297816909087,
+  "Spreading fire": 0.5594440104327225,
+  "Small burn": 0.9371137956192558
+ }
+}

@@ -1,0 +1,23 @@
+# FIRMS download and database
+duckdb>=1.2
+requests>=2.31
+
+# Analysis (audit/)
+pandas>=2.2
+numpy>=2.2
+pyarrow>=20
+geopandas>=1.1
+shapely>=2.1
+pyproj>=3.7
+matplotlib>=3.10
+statsmodels>=0.14
+patsy>=1.0
+scipy>=1.15
+scikit-learn>=1.6
+rasterio>=1.4
+
+# Optional: climate (ERA5) and health (DATASUS) threads
+xarray
+cdsapi
+tifffile
+pyreaddbc

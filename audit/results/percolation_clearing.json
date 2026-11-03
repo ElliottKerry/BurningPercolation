@@ -1,0 +1,93 @@
+{
+ "test_A_fine_scale": {
+  "ratio_all": {
+   "2008-15": 1.242,
+   "2016-23": 1.419,
+   "p": 0.0365
+  },
+  "ratio_near": {
+   "2008-15": 1.94,
+   "2016-23": 1.934,
+   "p": 0.9774
+  },
+  "ratio_far": {
+   "2008-15": 1.09,
+   "2016-23": 1.092,
+   "p": 0.958
+  },
+  "near_share_main": {
+   "2008-15": 0.365,
+   "2016-23": 0.439,
+   "p": 0.0071
+  },
+  "near_share_2km": {
+   "2008-15": 0.53,
+   "2016-23": 0.593,
+   "p": 0.0284
+  },
+  "near_share_prior": {
+   "2008-15": 0.355,
+   "2016-23": 0.438,
+   "p": 0.0074
+  },
+  "cleared_km2": {
+   "2008-15": 5856.308,
+   "2016-23": 9219.983,
+   "p": 0.0032
+  },
+  "spearman_ratio_all_vs_near_share": [
+   0.521,
+   0.039
+  ],
+  "spearman_near_share_vs_cleared": [
+   0.921,
+   0.0
+  ]
+ },
+ "test_B_cell_level": {
+  "glm": {
+   "M2": {
+    "deviance_explained": 0.8353
+   },
+   "M3": {
+    "deviance_explained": 0.8421,
+    "rate_ratio": {
+     "log_clear_y": 1.099,
+     "log_clear_next": 1.067
+    }
+   }
+  },
+  "observed_ratio": {
+   "2008-15": 1.242,
+   "2016-23": 1.419,
+   "spearman_with_observed": [
+    1.0,
+    0.0
+   ]
+  },
+  "oracle_ratio": {
+   "2008-15": 0.896,
+   "2016-23": 1.057,
+   "spearman_with_observed": [
+    0.75,
+    0.001
+   ]
+  },
+  "M2_ratio": {
+   "2008-15": 0.984,
+   "2016-23": 1.038,
+   "spearman_with_observed": [
+    0.135,
+    0.617
+   ]
+  },
+  "M3_ratio": {
+   "2008-15": 1.028,
+   "2016-23": 1.087,
+   "spearman_with_observed": [
+    0.312,
+    0.24
+   ]
+  }
+ }
+}

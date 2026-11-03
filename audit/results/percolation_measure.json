@@ -1,0 +1,74 @@
+{
+ "calibration": {
+  "anywhere": {
+   "d50_km = exp(a) * n^b": [
+    3520.89,
+    -0.5
+   ],
+   "resid_sd_log": 0.009
+  },
+  "usual": {
+   "d50_km = exp(a) * n^b": [
+    3123.25,
+    -0.493
+   ],
+   "resid_sd_log": 0.0509
+  }
+ },
+ "half_samples_per_year": 200,
+ "ratio_anywhere": {
+  "range": [
+   0.97,
+   1.341
+  ],
+  "median_se": 0.082,
+  "cochran_Q": 38.9,
+  "df": 21,
+  "Q_p": 0.010169611535156779,
+  "share_of_variation_beyond_noise_I2": 0.46,
+  "years_above_1_with_CI": 11,
+  "years_CI_includes_1": 11,
+  "era_2007_2015_minus_other": -0.169,
+  "era_diff_se": 0.036,
+  "era_p": 3.5031116487670687e-06
+ },
+ "ratio_usual": {
+  "range": [
+   1.01,
+   1.398
+  ],
+  "median_se": 0.086,
+  "cochran_Q": 38.8,
+  "df": 21,
+  "Q_p": 0.010252542211993607,
+  "share_of_variation_beyond_noise_I2": 0.459,
+  "years_above_1_with_CI": 15,
+  "years_CI_includes_1": 7,
+  "era_2007_2015_minus_other": -0.175,
+  "era_diff_se": 0.038,
+  "era_p": 3.8654904223400734e-06
+ },
+ "d50_rel": {
+  "range": [
+   1.171,
+   1.619
+  ],
+  "median_se": 0.099,
+  "cochran_Q": 38.9,
+  "df": 21,
+  "Q_p": 0.010169685925612366,
+  "share_of_variation_beyond_noise_I2": 0.46,
+  "years_above_1_with_CI": null,
+  "years_CI_includes_1": null,
+  "era_2007_2015_minus_other": -0.203,
+  "era_diff_se": 0.044,
+  "era_p": 3.5033479684672407e-06
+ },
+ "d50_km": {
+  "range": [
+   8.49,
+   17.3
+  ],
+  "median_se_km": 0.95
+ }
+}

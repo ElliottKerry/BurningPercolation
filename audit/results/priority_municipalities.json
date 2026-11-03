@@ -1,0 +1,63 @@
+{
+ "similar_floor_mean_events_2003_2007": 281.4,
+ "share_of_legal_amazon_events_listed_2008": {
+  "2003": 0.199,
+  "2004": 0.228,
+  "2005": 0.249,
+  "2006": 0.236,
+  "2007": 0.22,
+  "2008": 0.204,
+  "2009": 0.17,
+  "2010": 0.195,
+  "2011": 0.156,
+  "2012": 0.172,
+  "2013": 0.15,
+  "2014": 0.178,
+  "2015": 0.195,
+  "2016": 0.179,
+  "2017": 0.217,
+  "2018": 0.201,
+  "2019": 0.204,
+  "2020": 0.202,
+  "2021": 0.2,
+  "2022": 0.217,
+  "2023": 0.161,
+  "2024": 0.181
+ },
+ "all controls | log_events": {
+  "pooled_2009_2015": -0.12329910142081747,
+  "pooled_se": 0.07714454674246743,
+  "pooled_p": 0.10997919063343191,
+  "pre_trend_joint_p": 9.699216421825703e-07,
+  "n_municipalities": 745,
+  "n_treated": 36,
+  "n_controls": 709
+ },
+ "all controls | median_doy": {
+  "pooled_2009_2015": 6.518250634896235,
+  "pooled_se": 2.0070978302733415,
+  "pooled_p": 0.0011638281566879556,
+  "pre_trend_joint_p": 0.1848258410609919,
+  "n_municipalities": 658,
+  "n_treated": 36,
+  "n_controls": 622
+ },
+ "similar controls | log_events": {
+  "pooled_2009_2015": -0.11451533195891846,
+  "pooled_se": 0.082589575793902,
+  "pooled_p": 0.16557623214284856,
+  "pre_trend_joint_p": 0.00507490369383844,
+  "n_municipalities": 80,
+  "n_treated": 36,
+  "n_controls": 44
+ },
+ "similar controls | median_doy": {
+  "pooled_2009_2015": 1.8935124537837371,
+  "pooled_se": 2.3138397915762505,
+  "pooled_p": 0.4131618879054011,
+  "pre_trend_joint_p": 0.1451373991762115,
+  "n_municipalities": 80,
+  "n_treated": 36,
+  "n_controls": 44
+ }
+}

@@ -1,0 +1,370 @@
+{
+ "1 Jul": {
+  "share_of_year_fires_so_far_mean": 0.129,
+  "ratio_year": {
+   "ratio_sofar": {
+    "skill": -0.027,
+    "mae_model": 0.0994,
+    "mae_climatology": 0.0967,
+    "spearman": [
+     0.284,
+     0.2
+    ]
+   },
+   "log_n_sofar": {
+    "skill": 0.034,
+    "mae_model": 0.0935,
+    "mae_climatology": 0.0967,
+    "spearman": [
+     0.318,
+     0.149
+    ]
+   },
+   "share_sofar": {
+    "skill": 0.096,
+    "mae_model": 0.0874,
+    "mae_climatology": 0.0967,
+    "spearman": [
+     0.354,
+     0.106
+    ]
+   },
+   "persistence_last_year_skill": -0.003
+  },
+  "ratio_rest": {
+   "ratio_sofar": {
+    "skill": -0.042,
+    "mae_model": 0.128,
+    "mae_climatology": 0.1229,
+    "spearman": [
+     0.125,
+     0.58
+    ]
+   },
+   "log_n_sofar": {
+    "skill": 0.003,
+    "mae_model": 0.1225,
+    "mae_climatology": 0.1229,
+    "spearman": [
+     0.232,
+     0.299
+    ]
+   },
+   "share_sofar": {
+    "skill": -0.001,
+    "mae_model": 0.123,
+    "mae_climatology": 0.1229,
+    "spearman": [
+     0.406,
+     0.061
+    ]
+   },
+   "persistence_last_year_skill": -0.01
+  },
+  "join_day": {
+   "ratio_sofar": {
+    "skill": -0.057,
+    "mae_model": 8.7717,
+    "mae_climatology": 8.2973,
+    "spearman": [
+     -0.161,
+     0.474
+    ]
+   },
+   "log_n_sofar": {
+    "skill": 0.217,
+    "mae_model": 6.5005,
+    "mae_climatology": 8.2973,
+    "spearman": [
+     -0.547,
+     0.008
+    ]
+   },
+   "share_sofar": {
+    "skill": -0.006,
+    "mae_model": 8.347,
+    "mae_climatology": 8.2973,
+    "spearman": [
+     -0.212,
+     0.343
+    ]
+   }
+  }
+ },
+ "1 Aug": {
+  "share_of_year_fires_so_far_mean": 0.203,
+  "ratio_year": {
+   "ratio_sofar": {
+    "skill": 0.215,
+    "mae_model": 0.076,
+    "mae_climatology": 0.0967,
+    "spearman": [
+     0.667,
+     0.001
+    ]
+   },
+   "log_n_sofar": {
+    "skill": 0.051,
+    "mae_model": 0.0918,
+    "mae_climatology": 0.0967,
+    "spearman": [
+     0.395,
+     0.069
+    ]
+   },
+   "share_sofar": {
+    "skill": 0.045,
+    "mae_model": 0.0924,
+    "mae_climatology": 0.0967,
+    "spearman": [
+     0.214,
+     0.339
+    ]
+   },
+   "persistence_last_year_skill": -0.003
+  },
+  "ratio_rest": {
+   "ratio_sofar": {
+    "skill": -0.003,
+    "mae_model": 0.113,
+    "mae_climatology": 0.1127,
+    "spearman": [
+     0.385,
+     0.077
+    ]
+   },
+   "log_n_sofar": {
+    "skill": -0.022,
+    "mae_model": 0.1153,
+    "mae_climatology": 0.1127,
+    "spearman": [
+     0.169,
+     0.453
+    ]
+   },
+   "share_sofar": {
+    "skill": 0.044,
+    "mae_model": 0.1078,
+    "mae_climatology": 0.1127,
+    "spearman": [
+     0.275,
+     0.216
+    ]
+   },
+   "persistence_last_year_skill": -0.04
+  },
+  "join_day": {
+   "ratio_sofar": {
+    "skill": 0.016,
+    "mae_model": 8.1633,
+    "mae_climatology": 8.2973,
+    "spearman": [
+     -0.254,
+     0.254
+    ]
+   },
+   "log_n_sofar": {
+    "skill": 0.261,
+    "mae_model": 6.1318,
+    "mae_climatology": 8.2973,
+    "spearman": [
+     -0.63,
+     0.002
+    ]
+   },
+   "share_sofar": {
+    "skill": -0.009,
+    "mae_model": 8.3696,
+    "mae_climatology": 8.2973,
+    "spearman": [
+     -0.213,
+     0.342
+    ]
+   }
+  }
+ },
+ "1 Sep": {
+  "share_of_year_fires_so_far_mean": 0.373,
+  "ratio_year": {
+   "ratio_sofar": {
+    "skill": 0.179,
+    "mae_model": 0.0794,
+    "mae_climatology": 0.0967,
+    "spearman": [
+     0.431,
+     0.045
+    ]
+   },
+   "log_n_sofar": {
+    "skill": -0.005,
+    "mae_model": 0.0972,
+    "mae_climatology": 0.0967,
+    "spearman": [
+     0.313,
+     0.156
+    ]
+   },
+   "share_sofar": {
+    "skill": -0.052,
+    "mae_model": 0.1018,
+    "mae_climatology": 0.0967,
+    "spearman": [
+     -0.025,
+     0.911
+    ]
+   },
+   "persistence_last_year_skill": -0.003
+  },
+  "ratio_rest": {
+   "ratio_sofar": {
+    "skill": -0.07,
+    "mae_model": 0.0866,
+    "mae_climatology": 0.0809,
+    "spearman": [
+     -0.058,
+     0.797
+    ]
+   },
+   "log_n_sofar": {
+    "skill": -0.072,
+    "mae_model": 0.0868,
+    "mae_climatology": 0.0809,
+    "spearman": [
+     -0.165,
+     0.462
+    ]
+   },
+   "share_sofar": {
+    "skill": -0.056,
+    "mae_model": 0.0855,
+    "mae_climatology": 0.0809,
+    "spearman": [
+     -0.113,
+     0.615
+    ]
+   },
+   "persistence_last_year_skill": -0.231
+  },
+  "join_day": {
+   "ratio_sofar": {
+    "skill": -0.041,
+    "mae_model": 8.6336,
+    "mae_climatology": 8.2973,
+    "spearman": [
+     0.133,
+     0.554
+    ]
+   },
+   "log_n_sofar": {
+    "skill": 0.261,
+    "mae_model": 6.1307,
+    "mae_climatology": 8.2973,
+    "spearman": [
+     -0.6,
+     0.003
+    ]
+   },
+   "share_sofar": {
+    "skill": 0.002,
+    "mae_model": 8.2791,
+    "mae_climatology": 8.2973,
+    "spearman": [
+     -0.305,
+     0.168
+    ]
+   }
+  }
+ },
+ "1 Oct": {
+  "share_of_year_fires_so_far_mean": 0.626,
+  "ratio_year": {
+   "ratio_sofar": {
+    "skill": 0.166,
+    "mae_model": 0.0807,
+    "mae_climatology": 0.0967,
+    "spearman": [
+     0.527,
+     0.012
+    ]
+   },
+   "log_n_sofar": {
+    "skill": -0.05,
+    "mae_model": 0.1015,
+    "mae_climatology": 0.0967,
+    "spearman": [
+     0.158,
+     0.484
+    ]
+   },
+   "share_sofar": {
+    "skill": -0.049,
+    "mae_model": 0.1015,
+    "mae_climatology": 0.0967,
+    "spearman": [
+     0.039,
+     0.863
+    ]
+   },
+   "persistence_last_year_skill": -0.003
+  },
+  "ratio_rest": {
+   "ratio_sofar": {
+    "skill": -0.065,
+    "mae_model": 0.0859,
+    "mae_climatology": 0.0806,
+    "spearman": [
+     -0.292,
+     0.187
+    ]
+   },
+   "log_n_sofar": {
+    "skill": 0.031,
+    "mae_model": 0.0781,
+    "mae_climatology": 0.0806,
+    "spearman": [
+     0.381,
+     0.08
+    ]
+   },
+   "share_sofar": {
+    "skill": -0.017,
+    "mae_model": 0.082,
+    "mae_climatology": 0.0806,
+    "spearman": [
+     -0.043,
+     0.848
+    ]
+   },
+   "persistence_last_year_skill": -0.546
+  },
+  "join_day": {
+   "ratio_sofar": {
+    "skill": -0.035,
+    "mae_model": 8.5894,
+    "mae_climatology": 8.2973,
+    "spearman": [
+     0.067,
+     0.768
+    ]
+   },
+   "log_n_sofar": {
+    "skill": 0.205,
+    "mae_model": 6.5935,
+    "mae_climatology": 8.2973,
+    "spearman": [
+     -0.465,
+     0.029
+    ]
+   },
+   "share_sofar": {
+    "skill": 0.106,
+    "mae_model": 7.4192,
+    "mae_climatology": 8.2973,
+    "spearman": [
+     -0.493,
+     0.02
+    ]
+   }
+  }
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "2014": {
+  "events": 88841,
+  "largest_share_at_d": 0.57,
+  "samecell_largest_share_at_d": 0.743,
+  "lattice_on_share_at_k": 0.439,
+  "lattice_largest_cells_at_k": 3508,
+  "d50_km": 12.815,
+  "samecell_d50_km": 10.704,
+  "usual_d50_km": 11.197
+ },
+ "2019": {
+  "events": 88379,
+  "largest_share_at_d": 0.429,
+  "samecell_largest_share_at_d": 0.723,
+  "lattice_on_share_at_k": 0.459,
+  "lattice_largest_cells_at_k": 2779,
+  "d50_km": 15.969,
+  "samecell_d50_km": 12.0695,
+  "usual_d50_km": 11.143
+ },
+ "2011": {
+  "events": 81855,
+  "largest_share_at_d": 0.598,
+  "samecell_largest_share_at_d": 0.704,
+  "lattice_on_share_at_k": 0.443,
+  "lattice_largest_cells_at_k": 3150,
+  "d50_km": 12.19,
+  "samecell_d50_km": 10.597,
+  "usual_d50_km": 11.771
+ }
+}

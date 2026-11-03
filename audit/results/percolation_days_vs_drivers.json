@@ -1,0 +1,66 @@
+{
+ "lag_vs_deforestation_km2": {
+  "spearman": -0.534,
+  "spearman_p": 0.0105,
+  "pearson": -0.451,
+  "pearson_p": 0.0349,
+  "changes_pearson": -0.138,
+  "changes_p": 0.5504
+ },
+ "lag_vs_amazon_ratio": {
+  "spearman": -0.59,
+  "spearman_p": 0.0038,
+  "pearson": -0.611,
+  "pearson_p": 0.0025,
+  "changes_pearson": -0.332,
+  "changes_p": 0.1419
+ },
+ "lag_vs_brazil_ratio": {
+  "spearman": -0.396,
+  "spearman_p": 0.0682,
+  "pearson": -0.435,
+  "pearson_p": 0.0428,
+  "changes_pearson": -0.263,
+  "changes_p": 0.2497
+ },
+ "lag_vs_events": {
+  "spearman": -0.208,
+  "spearman_p": 0.3521,
+  "pearson": -0.183,
+  "pearson_p": 0.4151,
+  "changes_pearson": 0.321,
+  "changes_p": 0.1557
+ },
+ "lag_fixed_vs_deforestation_km2": {
+  "spearman": -0.414,
+  "spearman_p": 0.0554,
+  "pearson": -0.34,
+  "pearson_p": 0.1212,
+  "changes_pearson": -0.104,
+  "changes_p": 0.6552
+ },
+ "lag_fixed_vs_amazon_ratio": {
+  "spearman": -0.336,
+  "spearman_p": 0.1262,
+  "pearson": -0.351,
+  "pearson_p": 0.1089,
+  "changes_pearson": -0.14,
+  "changes_p": 0.5457
+ },
+ "lag_mean_2010_2015": 10.055555555555562,
+ "lag_mean_other_years": 2.3125000000000036,
+ "mannwhitney_2010_2015_vs_other_p": 0.006084730542934878,
+ "years_whose_whole_range_is_above_zero": [
+  2007,
+  2009,
+  2010,
+  2011,
+  2012,
+  2013,
+  2014,
+  2015,
+  2020,
+  2021,
+  2023
+ ]
+}

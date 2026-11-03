@@ -1,0 +1,26 @@
+{
+ "d50_events_km": {
+  "spearman_with_events": -0.772,
+  "p": 0.0
+ },
+ "d50_detections_km": {
+  "spearman_with_events": -0.713,
+  "p": 0.0002
+ },
+ "ratio_events": {
+  "spearman_with_events": -0.029,
+  "p": 0.8988
+ },
+ "k_star": {
+  "spearman_with_events": 0.554,
+  "p": 0.0074
+ },
+ "p_star": {
+  "spearman_with_events": -0.076,
+  "p": 0.736
+ },
+ "d50_events_vs_k_star": {
+  "spearman": -0.585,
+  "p": 0.0042
+ }
+}

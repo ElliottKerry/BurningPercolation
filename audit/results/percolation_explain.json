@@ -1,0 +1,259 @@
+{
+ "climate_pc1": {
+  "loadings": {
+   "rain_mm": -0.463,
+   "temp_c": 0.379,
+   "rh_pct": -0.472,
+   "wind_ms": 0.418,
+   "soil_0_7cm": -0.494
+  },
+  "share_of_climate_variance": 0.792
+ },
+ "model_drivers": {
+  "r2": 0.311,
+  "coef_per_sd": {
+   "const": 1.173,
+   "log_defor": 0.091,
+   "log_events": -0.067,
+   "climate_pc1": 0.033
+  },
+  "p": {
+   "const": 0.0,
+   "log_defor": 0.0001,
+   "log_events": 0.0031,
+   "climate_pc1": 0.0491
+  }
+ },
+ "model_periods_only": {
+  "r2": 0.602
+ },
+ "model_drivers_plus_periods": {
+  "r2": 0.662,
+  "coef_per_sd": {
+   "const": 1.333,
+   "log_defor": -0.006,
+   "log_events": -0.045,
+   "climate_pc1": 0.015,
+   "2007\u20132015": -0.267,
+   "2016\u20132024": -0.125
+  },
+  "p": {
+   "const": 0.0,
+   "log_defor": 0.834,
+   "log_events": 0.1772,
+   "climate_pc1": 0.4662,
+   "2007\u20132015": 0.0,
+   "2016\u20132024": 0.1152
+  }
+ },
+ "table": [
+  {
+   "outcome": "ratio_anywhere",
+   "candidate": "log_events",
+   "group": "fire count",
+   "levels_spearman": -0.04,
+   "levels_p": 0.855,
+   "changes_r": -0.29,
+   "changes_p": 0.201,
+   "mid_period_shift_sd": -0.18,
+   "mid_period_p": 0.6854,
+   "within_periods_coef": -0.035,
+   "within_periods_p": 0.065
+  },
+  {
+   "outcome": "ratio_anywhere",
+   "candidate": "rain_mm",
+   "group": "climate",
+   "levels_spearman": -0.07,
+   "levels_p": 0.766,
+   "changes_r": 0.23,
+   "changes_p": 0.321,
+   "mid_period_shift_sd": 0.47,
+   "mid_period_p": 0.2758,
+   "within_periods_coef": 0.007,
+   "within_periods_p": 0.557
+  },
+  {
+   "outcome": "ratio_anywhere",
+   "candidate": "temp_c",
+   "group": "climate",
+   "levels_spearman": 0.11,
+   "levels_p": 0.633,
+   "changes_r": -0.19,
+   "changes_p": 0.413,
+   "mid_period_shift_sd": -0.06,
+   "mid_period_p": 0.8855,
+   "within_periods_coef": 0.007,
+   "within_periods_p": 0.671
+  },
+  {
+   "outcome": "ratio_anywhere",
+   "candidate": "rh_pct",
+   "group": "climate",
+   "levels_spearman": 0.02,
+   "levels_p": 0.919,
+   "changes_r": 0.09,
+   "changes_p": 0.707,
+   "mid_period_shift_sd": 0.1,
+   "mid_period_p": 0.8176,
+   "within_periods_coef": 0.003,
+   "within_periods_p": 0.833
+  },
+  {
+   "outcome": "ratio_anywhere",
+   "candidate": "wind_ms",
+   "group": "climate",
+   "levels_spearman": -0.22,
+   "levels_p": 0.323,
+   "changes_r": -0.19,
+   "changes_p": 0.405,
+   "mid_period_shift_sd": 0.31,
+   "mid_period_p": 0.4595,
+   "within_periods_coef": -0.008,
+   "within_periods_p": 0.5
+  },
+  {
+   "outcome": "ratio_anywhere",
+   "candidate": "soil_0_7cm",
+   "group": "climate",
+   "levels_spearman": -0.0,
+   "levels_p": 0.994,
+   "changes_r": 0.23,
+   "changes_p": 0.313,
+   "mid_period_shift_sd": 0.29,
+   "mid_period_p": 0.5072,
+   "within_periods_coef": 0.007,
+   "within_periods_p": 0.569
+  },
+  {
+   "outcome": "ratio_anywhere",
+   "candidate": "log_defor",
+   "group": "deforestation",
+   "levels_spearman": 0.42,
+   "levels_p": 0.053,
+   "changes_r": 0.15,
+   "changes_p": 0.515,
+   "mid_period_shift_sd": -1.04,
+   "mid_period_p": 0.009,
+   "within_periods_coef": -0.031,
+   "within_periods_p": 0.211
+  },
+  {
+   "outcome": "ratio_anywhere",
+   "candidate": "amazon_share",
+   "group": "where fire happens",
+   "levels_spearman": 0.24,
+   "levels_p": 0.291,
+   "changes_r": 0.02,
+   "changes_p": 0.936,
+   "mid_period_shift_sd": -0.42,
+   "mid_period_p": 0.3554,
+   "within_periods_coef": 0.011,
+   "within_periods_p": 0.332
+  },
+  {
+   "outcome": "width",
+   "candidate": "log_events",
+   "group": "fire count",
+   "levels_spearman": -0.11,
+   "levels_p": 0.626,
+   "changes_r": 0.23,
+   "changes_p": 0.323,
+   "mid_period_shift_sd": -0.18,
+   "mid_period_p": 0.6854,
+   "within_periods_coef": -0.038,
+   "within_periods_p": 0.468
+  },
+  {
+   "outcome": "width",
+   "candidate": "rain_mm",
+   "group": "climate",
+   "levels_spearman": -0.01,
+   "levels_p": 0.974,
+   "changes_r": -0.46,
+   "changes_p": 0.036,
+   "mid_period_shift_sd": 0.47,
+   "mid_period_p": 0.2758,
+   "within_periods_coef": -0.072,
+   "within_periods_p": 0.216
+  },
+  {
+   "outcome": "width",
+   "candidate": "temp_c",
+   "group": "climate",
+   "levels_spearman": 0.0,
+   "levels_p": 0.99,
+   "changes_r": 0.45,
+   "changes_p": 0.038,
+   "mid_period_shift_sd": -0.06,
+   "mid_period_p": 0.8855,
+   "within_periods_coef": 0.049,
+   "within_periods_p": 0.333
+  },
+  {
+   "outcome": "width",
+   "candidate": "rh_pct",
+   "group": "climate",
+   "levels_spearman": -0.06,
+   "levels_p": 0.778,
+   "changes_r": -0.14,
+   "changes_p": 0.556,
+   "mid_period_shift_sd": 0.1,
+   "mid_period_p": 0.8176,
+   "within_periods_coef": -0.027,
+   "within_periods_p": 0.685
+  },
+  {
+   "outcome": "width",
+   "candidate": "wind_ms",
+   "group": "climate",
+   "levels_spearman": 0.3,
+   "levels_p": 0.18,
+   "changes_r": 0.26,
+   "changes_p": 0.25,
+   "mid_period_shift_sd": 0.31,
+   "mid_period_p": 0.4595,
+   "within_periods_coef": 0.05,
+   "within_periods_p": 0.318
+  },
+  {
+   "outcome": "width",
+   "candidate": "soil_0_7cm",
+   "group": "climate",
+   "levels_spearman": -0.05,
+   "levels_p": 0.813,
+   "changes_r": -0.34,
+   "changes_p": 0.127,
+   "mid_period_shift_sd": 0.29,
+   "mid_period_p": 0.5072,
+   "within_periods_coef": -0.051,
+   "within_periods_p": 0.365
+  },
+  {
+   "outcome": "width",
+   "candidate": "log_defor",
+   "group": "deforestation",
+   "levels_spearman": -0.54,
+   "levels_p": 0.009,
+   "changes_r": -0.33,
+   "changes_p": 0.142,
+   "mid_period_shift_sd": -1.04,
+   "mid_period_p": 0.009,
+   "within_periods_coef": -0.126,
+   "within_periods_p": 0.093
+  },
+  {
+   "outcome": "width",
+   "candidate": "amazon_share",
+   "group": "where fire happens",
+   "levels_spearman": -0.01,
+   "levels_p": 0.982,
+   "changes_r": 0.27,
+   "changes_p": 0.245,
+   "mid_period_shift_sd": -0.42,
+   "mid_period_p": 0.3554,
+   "within_periods_coef": 0.045,
+   "within_periods_p": 0.195
+  }
+ ]
+}

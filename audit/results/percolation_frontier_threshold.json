@@ -1,0 +1,48 @@
+{
+ "median_by_group": {
+  "all": {
+   "events": 42625.5,
+   "d50_km": 16.0,
+   "d_star_km": 19.88,
+   "random_d50_km": 12.01,
+   "ratio": 1.27,
+   "spacing_km": 9.95
+  },
+  "background": {
+   "events": 26642.0,
+   "d50_km": 17.53,
+   "d_star_km": 23.26,
+   "random_d50_km": 15.22,
+   "ratio": 1.07,
+   "spacing_km": 12.58
+  },
+  "frontier": {
+   "events": 18278.0,
+   "d50_km": 36.86,
+   "d_star_km": 47.43,
+   "random_d50_km": 18.39,
+   "ratio": 1.93,
+   "spacing_km": 15.19
+  }
+ },
+ "range_by_group": {
+  "all": {
+   "d50_km_min": 12.5,
+   "d50_km_max": 22.8,
+   "d_star_km_min": 16.7,
+   "d_star_km_max": 31.3
+  },
+  "background": {
+   "d50_km_min": 14.1,
+   "d50_km_max": 21.1,
+   "d_star_km_min": 10.3,
+   "d_star_km_max": 33.9
+  },
+  "frontier": {
+   "d50_km_min": 22.6,
+   "d50_km_max": 67.1,
+   "d_star_km_min": 30.2,
+   "d_star_km_max": 62.7
+  }
+ }
+}

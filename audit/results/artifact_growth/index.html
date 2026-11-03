@@ -1,0 +1,343 @@
+<title>Fire Cluster Growth</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: an instrument panel. Controls in one row, the map as the main plate, a side column with readings and the growth curve. */
+:root {
+  --bg: #f4f6f4; --panel: #ffffff; --fg: #1b2220; --muted: #5f6a66; --line: #d6dbd8;
+  --land: #e2e6e3; --border: #9aa5a0; --other: #a9b0ac; --accent: #0e6b63; --accent-soft: #d5ebe7;
+  --c0: #6a3d9a; --c1: #33a02c; --c2: #e7298a; --c3: #ff9f1c;
+  --display: "IBM Plex Sans Condensed", "Arial Narrow", system-ui, sans-serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #111615; --panel: #182020; --fg: #e4ebe8; --muted: #9aa7a2; --line: #2c3634;
+  --land: #222b29; --border: #55625e; --other: #5d6865; --accent: #5cc2b6; --accent-soft: #1d3b37;
+  --c0: #a27fd6; --c1: #4fc24a; --c2: #f05aa6; --c3: #ffb347; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #111615; --panel: #182020; --fg: #e4ebe8; --muted: #9aa7a2; --line: #2c3634;
+  --land: #222b29; --border: #55625e; --other: #5d6865; --accent: #5cc2b6; --accent-soft: #1d3b37;
+  --c0: #a27fd6; --c1: #4fc24a; --c2: #f05aa6; --c3: #ffb347; color-scheme: dark }
+
+body { background: var(--bg); color: var(--fg); font: 15px/1.5 var(--body); }
+.wrap { max-width: 1180px; margin: 0 auto; padding-block: 28px 48px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 20px; }
+header { display: grid; gap: 6px; }
+.eyebrow { font: 500 12px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font: 600 clamp(28px, 4vw, 40px)/1.1 var(--display); margin: 0; text-wrap: balance; }
+.lede { margin: 0; max-width: 68ch; color: var(--muted); }
+
+.controls { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; padding: 14px 16px;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 10px; }
+.group { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.label { font: 500 12px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+button { font: 500 14px/1 var(--body); color: var(--fg); background: transparent; border: 1px solid var(--line);
+  border-radius: 7px; padding: 8px 12px; cursor: pointer; }
+button:hover { border-color: var(--border); }
+button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.seg button { border: 0; border-radius: 0; padding: 8px 12px; }
+.seg button[aria-pressed="true"] { background: var(--accent); color: var(--panel); }
+select { font: 500 15px/1 var(--mono); color: var(--fg); background: var(--panel); border: 1px solid var(--line);
+  border-radius: 7px; padding: 7px 8px; }
+.yearbtn { padding: 8px 10px; font-family: var(--mono); }
+#play { min-width: 84px; background: var(--accent-soft); border-color: transparent; }
+.slider { flex: 1 1 260px; display: grid; gap: 4px; min-width: 0; }
+input[type=range] { width: 100%; accent-color: var(--accent); }
+.ticks { display: flex; justify-content: space-between; font: 11px/1 var(--mono); color: var(--muted); }
+
+.main { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 20px; align-items: start; }
+@media (max-width: 860px) { .main { grid-template-columns: 1fr; } }
+.plate { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px; position: relative; }
+canvas { display: block; width: 100%; max-width: 100%; aspect-ratio: 1 / 1.02; }
+.stamp { position: absolute; left: 22px; top: 18px; display: grid; gap: 2px; pointer-events: none; }
+.stamp .big { font: 600 30px/1 var(--display); }
+.stamp .small { font: 13px/1.2 var(--mono); color: var(--muted); }
+.loading { position: absolute; inset: 0; display: grid; place-items: center; color: var(--muted); font: 14px var(--mono); }
+
+.side { display: grid; gap: 16px; min-width: 0; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: grid; gap: 12px; min-width: 0; }
+.card h2 { font: 600 17px/1.2 var(--display); margin: 0; }
+.readings { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.reading { display: grid; gap: 2px; }
+.reading .v { font: 500 26px/1 var(--mono); font-variant-numeric: tabular-nums; }
+.reading .k { font-size: 13px; color: var(--muted); }
+.note { font-size: 14px; color: var(--muted); margin: 0; }
+.note strong { color: var(--fg); font-weight: 600; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 13px; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.sw { width: 12px; height: 12px; border-radius: 2px; display: inline-block; }
+svg { display: block; width: 100%; height: auto; overflow: visible; }
+svg text { font: 11px var(--mono); fill: var(--muted); }
+
+.about { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px 28px; }
+.about h3 { font: 600 15px/1.2 var(--display); margin: 0 0 4px; }
+.about p { margin: 0; font-size: 14px; color: var(--muted); max-width: 60ch; }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">MODIS Aqua fire events · Brazil · 2003–2024</div>
+    <h1>Fire Cluster Growth</h1>
+    <p class="lede">Watch fire join up into clusters, year by year. <strong>Through the season</strong> adds each fire on the day it starts. <strong>By joining distance</strong> uses the whole year's fires and links any two that are closer than a chosen distance.</p>
+  </header>
+
+  <div class="controls" role="group" aria-label="Map controls">
+    <div class="group">
+      <span class="label" id="yearLabel">Year</span>
+      <button class="yearbtn" id="prevYear" aria-label="Previous year">‹</button>
+      <select id="year" aria-labelledby="yearLabel"></select>
+      <button class="yearbtn" id="nextYear" aria-label="Next year">›</button>
+    </div>
+    <div class="group">
+      <span class="label">View</span>
+      <div class="seg">
+        <button id="modeSeason" aria-pressed="true">Through the season</button>
+        <button id="modeDistance" aria-pressed="false">By joining distance</button>
+      </div>
+    </div>
+    <div class="group slider">
+      <input type="range" id="step" min="0" max="14" value="9" aria-label="Date or distance">
+      <div class="ticks" id="ticks"></div>
+    </div>
+    <button id="play">Play</button>
+  </div>
+
+  <div class="main">
+    <div class="plate">
+      <canvas id="map" aria-label="Map of Brazil with fire clusters"></canvas>
+      <div class="stamp"><div class="big" id="stampBig">–</div><div class="small" id="stampSmall"></div></div>
+      <div class="loading" id="loading">Loading…</div>
+    </div>
+    <div class="side">
+      <div class="card">
+        <h2 id="readTitle">Readings</h2>
+        <div class="readings">
+          <div class="reading"><div class="v" id="rLargest">–</div><div class="k">of the year's fires are in the largest cluster</div></div>
+          <div class="reading" id="rSofarBox"><div class="v" id="rSofar">–</div><div class="k">of the year's fires have started</div></div>
+        </div>
+        <p class="note" id="rNote"></p>
+        <div class="legend">
+          <span><i class="sw" style="background:var(--c0)"></i>Largest cluster</span>
+          <span><i class="sw" style="background:var(--c1)"></i>2nd</span>
+          <span><i class="sw" style="background:var(--c2)"></i>3rd</span>
+          <span><i class="sw" style="background:var(--c3)"></i>4th</span>
+          <span><i class="sw" style="background:var(--other)"></i>Other fires</span>
+          <span><i class="sw" style="background:var(--land)"></i>No fire yet</span>
+        </div>
+      </div>
+      <div class="card">
+        <h2 id="chartTitle">Largest cluster through the season</h2>
+        <div class="group" id="axisGroup" hidden>
+          <span class="label">Distance in</span>
+          <div class="seg">
+            <button id="axisKm" aria-pressed="true">km</button>
+            <button id="axisRel" aria-pressed="false">× typical spacing</button>
+          </div>
+        </div>
+        <svg id="chart" viewBox="0 0 400 230" role="img" aria-label="Share of fires in the largest cluster"></svg>
+        <p class="note" id="chartNote"></p>
+      </div>
+    </div>
+  </div>
+
+  <section class="card about">
+    <div><h3>What a dot is</h3><p>Fire detections from the MODIS Aqua satellite (afternoon pass), merged into fire events when they are within 2 km and 2 days of each other. Each square is a 0.25° cell, about 28 km across, coloured by the largest cluster it has a fire in.</p></div>
+    <div><h3>How fires join</h3><p>Two fires belong to the same cluster when they are closer than the joining distance, directly or through a chain of other fires. Through the season, the distance is twice the typical spacing of that year's fires (14–23 km), so years with more or fewer fires compare fairly.</p></div>
+    <div><h3>Colours</h3><p>Clusters are ranked by size at each moment. When two clusters merge, the merged one takes the top colour, so a region can switch colour from one step to the next.</p></div>
+    <div><h3>Joining up</h3><p>A year "joins up" when the largest cluster first holds 40–60% of the year's fires (the average of the three dates). The shuffled-dates date uses the same fires with their start dates mixed up, which keeps the map but removes the timing.</p></div>
+  </section>
+</div>
+
+<script>
+(() => {
+  const MONTH = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  const RES = 0.25, COSLAT = Math.cos(12 * Math.PI / 180);
+  const LON0 = -74.3, LON1 = -34.4, LAT0 = -34.0, LAT1 = 5.6;
+  const els = id => document.getElementById(id);
+  const canvas = els("map"), ctx = canvas.getContext("2d");
+  const state = { year: 2010, mode: "season", step: 9, axis: "km", summary: null, cache: {}, timer: null };
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  const fmtPct = v => Math.round(v * 100) + "%";
+  const dayToDate = (y, doy) => { const d = new Date(Date.UTC(y, 0, 1) + (doy - 1) * 864e5); return d.getUTCDate() + " " + MONTH[d.getUTCMonth()]; };
+  const snapLabel = md => { const [m, d] = md.split("-").map(Number); return d + " " + MONTH[m - 1]; };
+
+  function steps() { return state.mode === "season" ? state.summary.snap_dates.length : state.summary.distances.length; }
+
+  function sizeCanvas() {
+    const r = canvas.getBoundingClientRect(), dpr = window.devicePixelRatio || 1;
+    canvas.width = Math.round(r.width * dpr); canvas.height = Math.round(r.height * dpr);
+  }
+  function proj(lon, lat) {
+    const w = canvas.width, h = canvas.height;
+    const sx = w / ((LON1 - LON0) * COSLAT), sy = h / (LAT1 - LAT0), s = Math.min(sx, sy);
+    const ox = (w - (LON1 - LON0) * COSLAT * s) / 2, oy = (h - (LAT1 - LAT0) * s) / 2;
+    return [ox + (lon - LON0) * COSLAT * s, oy + (LAT1 - lat) * s, s];
+  }
+
+  function drawMap() {
+    const S = state.summary, Y = state.cache[state.year];
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    if (!S) return;
+    const [, , s] = proj(0, 0), cw = RES * COSLAT * s + 0.6, ch = RES * s + 0.6;
+    ctx.fillStyle = css("--land");
+    const B = S.brazil;
+    for (let k = 0; k < B.ix.length; k++) {
+      const [x, y] = proj(B.ix[k] * RES - RES / 2, B.iy[k] * RES + RES / 2);
+      ctx.fillRect(x, y, cw, ch);
+    }
+    if (Y) {
+      const codes = (state.mode === "season" ? Y.season : Y.distance)[state.step];
+      const fill = [css("--c0"), css("--c1"), css("--c2"), css("--c3"), css("--other")];
+      for (let pass = 4; pass >= 0; pass--) {
+        ctx.fillStyle = fill[pass];
+        for (let k = 0; k < codes.length; k++) {
+          if (codes.charCodeAt(k) - 48 !== pass) continue;
+          const [x, y] = proj(Y.ix[k] * RES - RES / 2, Y.iy[k] * RES + RES / 2);
+          ctx.fillRect(x, y, cw, ch);
+        }
+      }
+    }
+    ctx.strokeStyle = css("--border"); ctx.lineWidth = Math.max(1, canvas.width / 900);
+    for (const ring of S.states) {
+      ctx.beginPath();
+      ring.forEach(([lon, lat], i) => { const [x, y] = proj(lon, lat); i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); });
+      ctx.closePath(); ctx.stroke();
+    }
+  }
+
+  function drawChart() {
+    const S = state.summary, svg = els("chart"), W = 400, H = 230, L = 34, R = 10, T = 10, Bm = 30;
+    const n = steps(), season = state.mode === "season", rel = !season && state.axis === "rel";
+    const [D0, D1] = rel ? [0.25, 8] : [1, 100];
+    const xd = d => L + (W - L - R) * (Math.log(d) - Math.log(D0)) / (Math.log(D1) - Math.log(D0));
+    const xs = i => L + (W - L - R) * i / (n - 1);
+    const ys = v => T + (H - T - Bm) * (1 - v);
+    let out = `<defs><clipPath id="plotArea"><rect x="${L}" y="0" width="${W - L - R}" height="${H}"/></clipPath></defs>`;
+    for (const v of [0, .25, .5, .75, 1]) {
+      out += `<line x1="${L}" x2="${W - R}" y1="${ys(v)}" y2="${ys(v)}" stroke="var(--line)" stroke-width="${v === .5 ? 1.4 : .8}" ${v === .5 ? 'stroke-dasharray="4 3"' : ""}/>`;
+      out += `<text x="${L - 6}" y="${ys(v) + 4}" text-anchor="end">${v * 100}%</text>`;
+    }
+    if (season) {
+      for (const i of [0, 2, 4, 6, 8, 10, 12])
+        out += `<text x="${xs(i)}" y="${H - 10}" text-anchor="middle">${MONTH[Number(S.snap_dates[i].split("-")[0]) - 1]}</text>`;
+    } else {
+      for (const d of rel ? [0.25, 0.5, 1, 2, 4, 8] : [1, 2, 5, 10, 20, 50, 100])
+        out += `<text x="${xd(d)}" y="${H - 10}" text-anchor="middle">${rel ? "×" + d : d + " km"}</text>`;
+      if (rel) out += `<line x1="${xd(1)}" x2="${xd(1)}" y1="${T}" y2="${H - Bm}" stroke="var(--line)"/>`;
+    }
+    const path = (arr, xf) => arr.map((v, i) => (i ? "L" : "M") + xf(i).toFixed(1) + " " + ys(v).toFixed(1)).join(" ");
+    const curveOf = rec => season ? [rec.season_share, xs]
+      : [rec.fine_share, i => xd(S.fine_d[i] / (rel ? rec.spacing_km : 1))];
+    out += `<g clip-path="url(#plotArea)">`;
+    for (const [y, rec] of Object.entries(S.years)) {
+      if (+y === state.year) continue;
+      const [arr, xf] = curveOf(rec);
+      out += `<path d="${path(arr, xf)}" fill="none" stroke="var(--other)" stroke-opacity=".45" stroke-width="1"/>`;
+    }
+    const cur = S.years[state.year];
+    if (season) out += `<path d="${path(cur.season_sofar, xs)}" fill="none" stroke="var(--muted)" stroke-width="1.4" stroke-dasharray="2 3"/>`;
+    const [carr, cxf] = curveOf(cur);
+    out += `<path d="${path(carr, cxf)}" fill="none" stroke="var(--accent)" stroke-width="2.4"/></g>`;
+    const cx = season ? xs(state.step) : xd(S.distances[state.step] / (rel ? cur.spacing_km : 1));
+    const cy = ys(season ? cur.season_share[state.step] : cur.distance_share[state.step]);
+    out += `<line x1="${cx}" x2="${cx}" y1="${T}" y2="${H - Bm}" stroke="var(--accent)" stroke-opacity=".35"/>`;
+    out += `<circle cx="${cx}" cy="${cy}" r="5" fill="var(--accent)" stroke="var(--panel)" stroke-width="2"/>`;
+    svg.innerHTML = out;
+    els("chartTitle").textContent = season ? "Largest cluster through the season" : "Largest cluster by joining distance";
+    els("axisGroup").hidden = season;
+    els("axisKm").setAttribute("aria-pressed", !rel);
+    els("axisRel").setAttribute("aria-pressed", rel);
+    const sp = S.d50_spread;
+    els("chartNote").innerHTML = season
+      ? `<strong>${state.year}</strong> in colour, other years in grey. Dotted line: share of the year's fires that have started. Dashed line: half.`
+      : rel
+        ? `Distance divided by each year's typical spacing between fires (${cur.spacing_km} km in ${state.year}; it is larger in years with fewer fires). This removes the effect of the fire count. Years now reach half at ×${sp.rel[0].toFixed(2)} to ×${sp.rel[1].toFixed(2)}, and the spread roughly halves (variation ${Math.round(sp.cv_km * 100)}% → ${Math.round(sp.cv_rel * 100)}%). What is left is real difference in how clustered fire was.`
+        : `<strong>${state.year}</strong> in colour, other years in grey, log scale. Years reach half between ${sp.km[0].toFixed(1)} and ${sp.km[1].toFixed(1)} km (${state.year}: ${cur.d50_km} km), mostly because some years have far more fires, so they sit closer together. Switch to <strong>× typical spacing</strong> to remove that.`;
+  }
+
+  function render() {
+    const S = state.summary; if (!S) return;
+    const rec = S.years[state.year], season = state.mode === "season";
+    const slider = els("step"); slider.max = steps() - 1; slider.value = state.step;
+    if (season) {
+      els("stampBig").textContent = snapLabel(S.snap_dates[state.step]) + " " + state.year;
+      els("stampSmall").textContent = "joining distance " + rec.d_km + " km";
+      els("rLargest").textContent = fmtPct(rec.season_share[state.step]);
+      els("rSofar").textContent = fmtPct(rec.season_sofar[state.step]);
+      els("rSofarBox").hidden = false;
+      const sign = rec.delay >= 0 ? "+" : "−";
+      els("rNote").innerHTML = `${rec.events.toLocaleString("en-GB")} fire events. Joins up around <strong>${dayToDate(state.year, Math.round(rec.join_day))}</strong>; with shuffled dates around ${dayToDate(state.year, Math.round(rec.shuffled_join_day))} (${sign}${Math.abs(rec.delay).toFixed(0)} days).`;
+    } else {
+      const d = S.distances[state.step];
+      els("stampBig").textContent = d + " km";
+      els("stampSmall").textContent = "all fires of " + state.year;
+      els("rLargest").textContent = fmtPct(rec.distance_share[state.step]);
+      els("rSofarBox").hidden = true;
+      els("rNote").innerHTML = `${rec.events.toLocaleString("en-GB")} fire events. Any two fires closer than <strong>${d} km</strong> are joined, directly or through a chain.`;
+    }
+    els("ticks").innerHTML = season ? "<span>1 Jun</span><span>1 Sep</span><span>31 Dec</span>" : `<span>${S.distances[0]} km</span><span>${S.distances[S.distances.length - 1]} km</span>`;
+    els("modeSeason").setAttribute("aria-pressed", season);
+    els("modeDistance").setAttribute("aria-pressed", !season);
+    els("year").value = state.year;
+    drawMap(); drawChart();
+  }
+
+  async function loadYear(y) {
+    if (!state.cache[y]) {
+      els("loading").hidden = false;
+      try { state.cache[y] = await (await fetch(`data/${y}.json`)).json(); }
+      catch (e) { els("loading").textContent = "Could not load " + y + ". Reload the page to try again."; return; }
+      els("loading").hidden = true;
+    }
+    if (y === state.year) render();
+  }
+
+  function setYear(y) {
+    const years = Object.keys(state.summary.years).map(Number);
+    state.year = Math.min(Math.max(y, years[0]), years[years.length - 1]);
+    render(); loadYear(state.year);
+  }
+  function setMode(m) {
+    if (m === state.mode) return;
+    state.mode = m; state.step = m === "season" ? 9 : 6; stop(); render();
+  }
+  function stop() { clearInterval(state.timer); state.timer = null; els("play").textContent = "Play"; }
+  function play() {
+    if (state.timer) return stop();
+    if (state.step >= steps() - 1) state.step = 0;
+    els("play").textContent = "Pause"; render();
+    state.timer = setInterval(() => {
+      if (state.step >= steps() - 1) return stop();
+      state.step++; render();
+    }, reduceMotion ? 1400 : 650);
+  }
+
+  els("step").addEventListener("input", e => { state.step = +e.target.value; render(); });
+  els("play").addEventListener("click", play);
+  els("modeSeason").addEventListener("click", () => setMode("season"));
+  els("modeDistance").addEventListener("click", () => setMode("distance"));
+  els("axisKm").addEventListener("click", () => { state.axis = "km"; render(); });
+  els("axisRel").addEventListener("click", () => { state.axis = "rel"; render(); });
+  els("year").addEventListener("change", e => setYear(+e.target.value));
+  els("prevYear").addEventListener("click", () => setYear(state.year - 1));
+  els("nextYear").addEventListener("click", () => setYear(state.year + 1));
+  window.addEventListener("resize", () => { sizeCanvas(); drawMap(); });
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", render);
+  new MutationObserver(render).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+
+  (async () => {
+    sizeCanvas();
+    try { state.summary = await (await fetch("data/summary.json")).json(); }
+    catch (e) { els("loading").textContent = "Could not load the map data. Reload the page to try again."; return; }
+    els("year").innerHTML = Object.keys(state.summary.years).map(y => `<option value="${y}">${y}</option>`).join("");
+    render(); loadYear(state.year);
+  })();
+})();
+</script>

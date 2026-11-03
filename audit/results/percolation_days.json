@@ -1,0 +1,45 @@
+{
+ "fixed": {
+  "d_km_range": [
+   20.0,
+   20.0
+  ],
+  "final_share_range": [
+   0.7065091987247082,
+   0.9743264659270998
+  ],
+  "join_day_mean": 283.92424242424244,
+  "join_day_sd": 14.697633908913451,
+  "shuffled_day_sd": 12.72705520153558,
+  "corr_join_vs_shuffled": 0.9658762048087202,
+  "share_of_join_variance_matched_by_shuffled": 0.9329168430156968,
+  "lag_mean": 3.3257575757575792,
+  "lag_sd": 4.08036895077035,
+  "years_later_than_all_shuffled": 11,
+  "years_sooner_than_all_shuffled": 1,
+  "spearman_join_vs_events": -0.8257554692457479,
+  "spearman_lag_vs_events": -0.5828862135852338
+ },
+ "scaled": {
+  "d_km_range": [
+   14.298259113148218,
+   22.54452051643648
+  ],
+  "final_share_range": [
+   0.7397651132222661,
+   0.924097861937364
+  ],
+  "join_day_mean": 290.4848484848485,
+  "join_day_sd": 9.672262897206092,
+  "shuffled_day_sd": 8.995522909727507,
+  "corr_join_vs_shuffled": 0.8546822952432178,
+  "share_of_join_variance_matched_by_shuffled": 0.730481825802215,
+  "lag_mean": 4.424242424242428,
+  "lag_sd": 5.073983666243928,
+  "years_later_than_all_shuffled": 11,
+  "years_sooner_than_all_shuffled": 0,
+  "spearman_join_vs_events": -0.14188816303916896,
+  "spearman_lag_vs_events": -0.20835686053077357
+ },
+ "count_only_day_sd": 6.423037541180283
+}
